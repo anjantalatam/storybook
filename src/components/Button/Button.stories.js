@@ -1,4 +1,5 @@
 import Button from "./Button";
+import Center from "../Center/Center";
 
 export default {
   title: "Form/Button",
@@ -6,9 +7,14 @@ export default {
   args: {
     children: "Button", // this is default and can be overridden by args.children as in line 20
   },
+  decorators: [(story) => <Center>{story()}</Center>], // to apply decorator to this entire file.
 };
 
-export const Primary = () => <Button variant="primary">Primary</Button>;
+export const Primary = () => (
+  <Center>
+    <Button variant="primary">Primary</Button>
+  </Center>
+);
 export const Secondary = () => <Button variant="secondary">Primary</Button>;
 export const Success = () => <Button variant="success">Primary</Button>;
 export const Danger = () => <Button variant="danger">Primary</Button>;
