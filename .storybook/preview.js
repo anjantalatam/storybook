@@ -1,7 +1,4 @@
-import Center from "../src/components/Center/Center";
-import { addDecorator } from "@storybook/react";
-
-addDecorator((story) => <Center>{story()}</Center>); // for global i.e wraps every story with Center
+import { ThemeProvider } from "@mui/material/styles";
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
@@ -19,3 +16,11 @@ export const parameters = {
     },
   },
 };
+
+export const decorators = [
+  (Story) => (
+    <ThemeProvider>
+      <Story />
+    </ThemeProvider>
+  ),
+];
